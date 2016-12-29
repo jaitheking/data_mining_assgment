@@ -1,10 +1,10 @@
 # TDS3301 - DATA MINING
 A Git repo for my group's Data Mining Assignment
 
-###Lecturer:
-Dr. Ho Chiung Ching
+####Lecturer:
+__Dr. Ho Chiung Ching__
 
-###Team Members:
-+Jaiprashanth 1131122948
-+Kevin Lee Xin Zhe 1132700900
-+Farhanuddin bin Hamdan 1132702175
+####Team Members:
++ __Jaiprashanth__ 1131122948  
++ __Kevin Lee Xin Zhe__ 1132700900  
++ __Farhanuddin bin Hamdan__ 1132702175  
