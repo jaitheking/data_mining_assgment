@@ -12,7 +12,7 @@ words <- na.omit(words)
 
 library(tidyr)
 library(stringr)
-len <- max(str_count(words2, pattern = paste0("[","|","]")))
+len <- max(str_count(words, pattern = paste0("[","|","]")))
 
 # Separate mixed string into columns
 
