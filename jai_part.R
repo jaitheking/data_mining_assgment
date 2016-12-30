@@ -19,7 +19,6 @@ first_ten <- imdb[, 1:10]
 first_ten$color<- tolower(first_ten$color)
 first_ten$color<-as.factor(first_ten$color)
 first_ten$color<-droplevels(first_ten$color)
-first_ten$director_name<-as.factor(first_ten$director_name)
 
 # We attempt to make an intuitive decision to subset the data frame by filtering out observations will not contributing our data mining process later on. So we will set our own conditions such as:
 # director_facebook_likes >= 500
@@ -37,3 +36,10 @@ first_ten_clean <- na.omit(first_ten_sub)
 
 summary(first_ten_clean)
 
+# Drop unnecessary columns
+install.packages("dplyr")
+library(dplyr)
+first_ten_clean <- select(first_ten_clean, -genres, -director_name, -num_critic_for_reviews, -actor_2_name)
+
+# Review the summary of the new pre-processed data frame, first_ten_clean
+summary(first_ten_clean)
