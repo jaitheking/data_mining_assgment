@@ -8,14 +8,11 @@ library(arulesViz)
 #Load the dataset as a dataframe
 bakery <- read.csv(file= "Part_2/1000-out1.csv", header = FALSE)
 
-
 #Drop first column
 bakery <- bakery[,2:7]
 
-#bakery[is.na(bakery)] <- 0
-#revalue(bakery, c("1"="Chocolate_Cake"))
-
-colnames(bakery) <- c("First_Item", "Second_Item", "Third_Item", "Fourth_Item", "Fifth_Item", "Sixth_Item")
+#Add headers
+#colnames(bakery) <- c("First_Item", "Second_Item", "Third_Item", "Fourth_Item", "Fifth_Item", "Sixth_Item")
 
 # Renaming the values accordingly to the codes for convenience. Can be commented out.
 bakery[bakery=="0"]<-"Chocolate_Cake"
@@ -75,7 +72,6 @@ bakery[] <- lapply(bakery, factor)
 #Display the summary of the bakery dataframe
 summary(bakery)
 
-
 # Association Rule Mining
 bakery_trans <- as(bakery, "transactions")
 
@@ -103,3 +99,4 @@ plot(rules.pruned)
 plot(rules.pruned, method="graph",interactive = TRUE)
 plot(rules.pruned, method="grouped", interactive= TRUE)
 plot(rules.pruned, method="paracoord", control=list(reorder= TRUE))
+
