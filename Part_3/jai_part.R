@@ -77,6 +77,15 @@ plot(nn)
 head(nn)
 pr.nn <- compute(nn,test_[,c("sex", "age", "studytime", "failures", "schoolsup", "famsup", "paid", "activities", "internet", "romantic", "famrel", "freetime", "goout", "Dalc", "Walc", "health", "absences", "G1",    "G2" )])
 
+
+
+pr.nn_ <- pr.nn$net.result*(max(student_pre$G3)-min(student_pre$G3))+min(student_pre$G3)
+test.r <- (student_pre$G3data$medv)
+
+MSE.nn <- sum((test.r - pr.nn_)^2)/nrow(test_)
+
+
+#Confusion Matrix
 table(test_$G3)
 sort(pr.nn$net.result,decreasing = T)[914]
 pr.nn.level <- ifelse(pr.nn$net.result >0.5,1,0)
