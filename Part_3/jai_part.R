@@ -82,7 +82,20 @@ pr.nn <- compute(nn,test_[,c("sex", "age", "studytime", "failures", "schoolsup",
 pr.nn_ <- pr.nn$net.result*(max(student_pre$G3)-min(student_pre$G3))+min(student_pre$G3)
 test.r <- (student_pre$G3data$medv)
 
-MSE.nn <- sum((test.r - pr.nn_)^2)/nrow(test_)
+par(mfrow=c(1,2))
+
+plot(test$G3,pr.nn_,col='red',main='Real vs predicted NN',pch=18,cex=0.7)
+abline(0,1,lwd=2)
+legend('bottomright',legend='NN',pch=18,col='red', bty='n')
+
+plot(test$G3,pr.lm,col='blue',main='Real vs predicted lm',pch=18, cex=0.7)
+abline(0,1,lwd=2)
+legend('bottomright',legend='LM',pch=18,col='blue', bty='n', cex=.95)
+
+plot(test$G3,pr.nn_,col='red',main='Real vs predicted NN',pch=18,cex=0.7)
+points(test$G3,pr.lm,col='blue',pch=18,cex=0.7)
+abline(0,1,lwd=2)
+legend('bottomright',legend=c('NN','LM'),pch=18,col=c('red','blue'))
 
 
 #Confusion Matrix
